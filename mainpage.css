@@ -215,6 +215,11 @@
     }
     .menu-overlay.open { visibility: visible; opacity: 1; }
 
+    /* Keep overlay mobile-only to avoid changing desktop look */
+    @media (min-width: 1025px) {
+      .menu-overlay { display: none !important; }
+    }
+
     /* Search */
     .search-btn {
       background:none; border:none; padding:8px; display:flex; align-items:center; justify-content:center;

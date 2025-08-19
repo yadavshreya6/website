@@ -723,6 +723,14 @@ body.light-mode .search-btn svg {
             color: rgba(33, 37, 41, 0.6);
         }
 
+                /* Disable custom cursor on touch devices */
+                @media (hover: none) and (pointer: coarse) {
+                    body, .logo, .menu-link, .floating-cta, .menu-toggle, .theme-toggle, .search-btn {
+                        cursor: auto !important;
+                    }
+                    .custom-cursor { display: none !important; }
+                }
+
         @media (max-width: 768px) {
             .menu-panel { width: 300px; }
             .hero-title { font-size: 2.5rem; }
@@ -733,6 +741,7 @@ body.light-mode .search-btn svg {
             .cert-grid { grid-template-columns: 1fr; }
             .floating-cta { bottom: 1rem; right: 1rem; padding: 0.8rem 1.5rem; }
             .header-actions { gap: 0.5rem; }
+                    .search-dropdown { width: 95vw; right: 50%; left: 50%; transform: translateX(-50%); }
         }
 
         /* Additional responsive refinements */
@@ -753,4 +762,7 @@ body.light-mode .search-btn svg {
             .logo { letter-spacing: 4px; }
             .section-title { font-size: 1.8rem; }
             .hero-section { padding-top: 100px; padding-bottom: 40px; }
+            .header-actions { gap: 0.4rem; }
+            .brand-name { font-size: 1.6rem; }
+            .hero-title { font-size: 2.2rem; }
         }

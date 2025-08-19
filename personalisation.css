@@ -1019,7 +1019,6 @@ html::-webkit-scrollbar {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
         }
         .search-dropdown .category-description {
             color: #e8e8e8;
@@ -2432,4 +2431,45 @@ html::-webkit-scrollbar {
         }
 
         /* Light theme modifications */
+
+        /* Responsive overrides: preserve desktop, improve mobile/tablet */
+        @media (max-width: 1024px) {
+            .site-header { padding: 0.75rem 1rem; }
+            .header-actions { gap: 0.6rem; }
+            .logo { font-size: 1.25rem; letter-spacing: 0.45rem; }
+
+            .header { padding: 120px 0 60px 0; min-height: 90vh; }
+
+            .values-grid {
+                flex-direction: column;
+                gap: 24px;
+                padding: 0 16px;
+            }
+            .value-item {
+                width: 100%;
+                max-width: 720px;
+                margin: 0 auto;
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            .menu-panel { width: min(86vw, 340px); }
+            .brand-name { font-size: 1.6rem; letter-spacing: 3px; }
+            .main-title { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; max-width: 90vw; }
+            .section-content { grid-template-columns: 1fr; gap: 32px; }
+            .values-grid { gap: 20px; }
+            .search-dropdown { width: min(90vw, 320px); right: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .site-header { padding: 0.6rem 0.75rem; }
+            .logo { font-size: 1.05rem; letter-spacing: 0.35rem; }
+            .header { padding: 100px 0 50px 0; min-height: 85vh; }
+            .main-title { font-size: 1.9rem; letter-spacing: 2px; }
+            .value-title { font-size: 1.1rem; }
+            .value-description { font-size: 0.95rem; }
+        }
 

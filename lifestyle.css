@@ -1136,6 +1136,31 @@
                 padding: 60px 0;
             }
         }
+        /* Desktop only: keep overlay hidden */
+        @media (min-width: 1025px) {
+            .menu-overlay { display: none !important; }
+        }
+        /* Tablet refinements without changing desktop */
+        @media (max-width: 1024px) {
+            .site-header { padding: 0.75rem 1rem; }
+            .menu-panel { width: 360px; }
+            .header { min-height: auto; padding-top: 120px; padding-bottom: 60px; }
+            .scroll-indicator { display: none; }
+            .section-content { gap: 48px; }
+        }
+        /* Mobile refinements */
+        @media (max-width: 768px) {
+            .search-dropdown { width: 95vw; right: 50%; left: 50%; transform: translate(-50%, 0); }
+            .image-placeholder { height: 260px; }
+        }
+        /* Small phones */
+        @media (max-width: 480px) {
+            .logo { letter-spacing: 4px; }
+            .brand-name { font-size: 1.6rem; }
+            .main-title { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .header { padding-top: 100px; padding-bottom: 40px; }
+        }
         
         /* Additional responsive refinements */
         @media (max-width: 1024px) {

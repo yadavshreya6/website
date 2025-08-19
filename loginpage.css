@@ -31,9 +31,7 @@ body {
     padding: 0;
     min-height: 100vh;
     background: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     color: var(--text-color);
 }
 
@@ -427,7 +425,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 6.5rem 2rem 2rem; /* add top space under fixed header */
     background: none;
     color: var(--text-color);
 }
@@ -531,4 +529,47 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     50% {
         transform: translateY(-10px);
     }
+}
+
+/* Desktop-only: hide overlay to preserve desktop look */
+@media (min-width: 1025px) {
+    .menu-overlay { display: none !important; }
+}
+
+/* Tablet refinements */
+@media (max-width: 1024px) {
+    .site-header { padding: 0.75rem 1rem; }
+    .menu-panel { width: 360px; }
+    .container { padding: 5.5rem 1.5rem 1.5rem; }
+    .login-header { gap: 1rem; margin-bottom: 1.5rem; }
+    .login-option { font-size: 1.5rem; }
+    .divider { font-size: 1.5rem; }
+    .login-form { max-width: 480px; padding: 1.5rem; }
+    .footer { position: static; }
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .menu-panel { width: 300px; }
+    .logo { letter-spacing: 4px; }
+    .container { padding: 5rem 1rem 1rem; }
+    .login-header { flex-wrap: wrap; gap: 0.25rem; row-gap: 0.5rem; text-align: center; }
+    .login-header .login-option { flex: 1 1 100%; }
+    .login-option { font-size: 1.25rem; }
+    .divider { display: none; }
+    .login-form { max-width: 100%; padding: 1.25rem; margin-top: 0.25rem; }
+    .form-group { margin-bottom: 1rem; }
+    .submit-btn { padding: 1rem 1.25rem; font-size: 1.05rem; }
+    .checkbox-group { align-items: flex-start; gap: 0.75rem; }
+    .checkbox-group label { line-height: 1.4; }
+    .checkbox-group input[type="checkbox"] { margin-top: 0.2rem; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .site-header { padding: 0.5rem 0.75rem; }
+    .login-option { font-size: 1.1rem; }
+    .form-group input { font-size: 0.95rem; padding: 0.85rem; }
+    .forgot-password a { font-size: 0.85rem; }
+    .container { padding-top: 4.5rem; }
 }

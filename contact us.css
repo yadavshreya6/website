@@ -862,3 +862,44 @@ body.light-mode .search-btn svg {
                 gap: 0.5rem;
             }
         }
+        /* Desktop only: hide menu overlay */
+        @media (min-width: 1025px) {
+            .menu-overlay { display: none !important; }
+        }
+        /* Tablet refinements without altering desktop visuals */
+        @media (max-width: 1024px) {
+            .site-header { padding: 0.75rem 1rem; }
+            .menu-panel { width: 360px; }
+            .contact-section { padding: 4rem 1.25rem; }
+            .contact-grid { gap: 2.5rem; }
+        }
+        /* Mobile refinements */
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .contact-info, .contact-form { padding: 1.5rem; }
+            .owners-grid { grid-template-columns: 1fr; }
+            .owner-card { padding: 1.5rem; }
+            .hero-section { height: auto; padding: 120px 1rem 60px; }
+            .hero-title { font-size: 2rem; }
+            .brand-name { font-size: 1.8rem; }
+        }
+        /* Small phones */
+        @media (max-width: 480px) {
+            .logo { letter-spacing: 4px; }
+            .hero-title { font-size: 1.75rem; }
+            .brand-name { font-size: 1.6rem; }
+        }
+
+    /* Responsive map container */
+    .map-wrap { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .map-inner { position: relative; width: 100%; }
+    /* Maintain aspect ratio using padding-top trick */
+    .map-inner::before { content: ""; display: block; padding-top: 37.5%; }
+    @media (max-width: 1024px) { .map-inner::before { padding-top: 56.25%; } }
+    .map-inner iframe { position: absolute; top: 0; left: 0; width: 100% !important; height: 100% !important; border: 0; }
+
+        /* Disable custom cursor on touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .custom-cursor { display: none !important; }
+            .logo, .menu-toggle, .theme-toggle, .search-btn, .submit-btn, .linkedin-btn { cursor: auto !important; }
+        }

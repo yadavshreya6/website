@@ -283,6 +283,16 @@ body {
   opacity: 1; 
 }
 
+/* Keep overlay mobile-only so desktop visuals remain unchanged */
+@media (min-width: 1025px) {
+  .menu-overlay { display: none !important; }
+}
+
+/* Keep overlay mobile-only to avoid altering desktop appearance */
+@media (min-width: 1025px) {
+  .menu-overlay { display: none !important; }
+}
+
 /* Hero Section - Watch Theme */
 .hero { 
   height: 100vh; 
@@ -1387,6 +1397,23 @@ body {
       .modal-3d-canvas { width: 99vw; height: 45vh; min-width: 160px; min-height: 120px; }
       .modal-3d-title { font-size: 1rem; margin-top: 8px; }
     }
+
+/* Mobile refinements */
+@media (max-width: 768px) {
+  /* Ensure hero content doesn’t hide behind fixed header on small screens */
+  .hero { padding-top: 72px; }
+}
+
+@media (max-width: 480px) {
+  /* Make search dropdown fit small screens */
+  .search-dropdown {
+    width: 95vw;
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .header-actions { gap: 0.5rem; }
+}
 
   /* Additional responsive refinements */
   @media (max-width: 1024px) {

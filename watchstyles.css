@@ -738,6 +738,9 @@ body {
 @media (max-width: 768px) {
   .search-dropdown { width: 95vw; right: 50%; left: 50%; transform: translate(-50%, 0); }
   .btn { width: 100%; text-align: center; }
+  .header-actions { gap: 0.5rem; }
+  .hero-watch { height: 360px; }
+  .hero-title { font-size: clamp(2rem, 6vw, 2.25rem); }
 }
 
 @media (max-width: 480px) {
@@ -745,6 +748,9 @@ body {
   .header-actions { gap: 0.5rem; }
   .hero { padding: 100px 0 40px; }
   .section-title { font-size: 1.75rem; }
+  .hero-subtitle { font-size: 0.95rem; letter-spacing: 0.08em; }
+  .watch-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .watch-viewport { height: 220px; }
 }
 
   /* Search Button and Dropdown */
@@ -898,3 +904,7 @@ body {
       .modal-3d-canvas { width: 98vw; height: 50vw; min-height: 180px; }
       .modal-3d-title { font-size: 1rem; margin-top: 8px; }
     }
+/* Desktop-only: hide menu overlay to preserve desktop visuals */
+@media (min-width: 1025px) {
+  .menu-overlay { display: none !important; }
+}

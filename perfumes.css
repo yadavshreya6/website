@@ -86,6 +86,11 @@ body { overflow-x: hidden; transition: all 0.3s ease; opacity: 0; animation: pag
     .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: all 0.5s ease; z-index: 49; }
     .menu-overlay.open { visibility: visible; opacity: 1; }
 
+    /* Keep overlay mobile-only to avoid altering desktop appearance */
+    @media (min-width: 1025px) {
+      .menu-overlay { display: none !important; }
+    }
+
     /* Hero Section */
     .hero { height: 100vh; background: var(--hero-bg); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g"><stop offset="20%" stop-color="%23d4af37" stop-opacity="0.1"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="20" cy="30" r="2" fill="url(%23g)"/><circle cx="80" cy="70" r="3" fill="url(%23g)"/><circle cx="60" cy="20" r="1.5" fill="url(%23g)"/></svg>') repeat; opacity: 0.3; animation: sparkle 8s infinite; }
@@ -155,16 +160,6 @@ body { overflow-x: hidden; transition: all 0.3s ease; opacity: 0; animation: pag
     .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212,175,55,0.5); }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .menu-panel { width: 300px; }
-      .collections { padding: 4rem 1rem; }
-      .perfume-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .perfume-card { padding: 2rem; }
-      .hero-content { flex-direction: column; text-align: center; gap: 2rem; }
-      .hero-bottle { height: 400px; }
-    }
-
-    /* Additional responsive refinements */
     @media (max-width: 1024px) {
       .header { padding: 0.75rem 1rem; }
       .menu-panel { width: 360px; }
@@ -174,6 +169,12 @@ body { overflow-x: hidden; transition: all 0.3s ease; opacity: 0; animation: pag
     }
 
     @media (max-width: 768px) {
+      .menu-panel { width: 300px; }
+      .collections { padding: 4rem 1rem; }
+      .perfume-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .perfume-card { padding: 2rem; }
+      .hero-content { flex-direction: column; text-align: center; gap: 2rem; }
+      .hero-bottle { height: 400px; }
       .search-dropdown { width: 95vw; right: 50%; left: 50%; transform: translate(-50%, 0); }
       .btn { width: 100%; text-align: center; }
     }
@@ -205,6 +206,40 @@ body { overflow-x: hidden; transition: all 0.3s ease; opacity: 0; animation: pag
       80% { transform: scale(0.7) translateX(0); opacity: 0.7; }
       100% { transform: scale(1.1) translateX(0); opacity: 1; }
     }
+
+/* Desktop-only: hide overlay so desktop visuals don't change */
+@media (min-width: 1025px) {
+  .menu-overlay { display: none !important; }
+}
+
+/* Tablet tweaks (also used by custom-perfume page) */
+@media (max-width: 1024px) {
+  .header { padding: 0.75rem 1rem; }
+  .customize-section { 
+    width: 100vw !important; 
+    margin-left: 0 !important; 
+    padding: 2rem 1rem !important; 
+    min-height: auto !important; 
+  }
+  .note-row { gap: 0.75rem; }
+}
+
+/* Mobile layout for customizer and hero */
+@media (max-width: 768px) {
+  .hero { height: auto; padding: 120px 0 60px; }
+  .hero-content { flex-direction: column; text-align: center; gap: 1.5rem; padding: 0 1rem; }
+  .customize-section form { width: 100% !important; }
+  .note-row { flex-direction: column; align-items: stretch; }
+  .note-group { width: 100%; }
+  .note-options { flex-wrap: nowrap; overflow-x: auto; }
+  .blend-btn { width: 100%; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section-title, .hero-title { font-size: 1.75rem; }
+  .note-pill { font-size: 0.9rem; padding: 0.45rem 1rem; }
+}
 
        .modal-3d-overlay {
       position: fixed;
@@ -278,3 +313,29 @@ body { overflow-x: hidden; transition: all 0.3s ease; opacity: 0; animation: pag
       .modal-3d-canvas { width: 99vw; height: 45vh; min-width: 160px; min-height: 120px; }
       .modal-3d-title { font-size: 1rem; margin-top: 8px; }
     }
+
+/* --- Custom Perfume page responsive fixes --- */
+@media (max-width: 1024px) {
+  /* Undo inline 105vw and negative margins on smaller screens */
+  .customize-section {
+    width: 100vw !important;
+    margin-left: 0 !important;
+    padding: 2rem 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .customize-section {
+    min-height: auto !important;
+    align-items: stretch !important;
+  }
+  #customPerfumeForm { width: 100% !important; padding: 0.5rem 0 !important; }
+  .note-row { flex-direction: column !important; gap: 1rem !important; align-items: stretch !important; }
+  .note-group { width: 100% !important; align-items: stretch !important; }
+  .note-options { flex-wrap: nowrap; overflow-x: auto; }
+  .blend-btn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .note-pill { padding: 0.5rem 0.9rem; font-size: 0.95rem; }
+}
